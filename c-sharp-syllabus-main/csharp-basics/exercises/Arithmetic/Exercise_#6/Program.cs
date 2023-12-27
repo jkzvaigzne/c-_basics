@@ -17,11 +17,12 @@
             for(int i = smallestNum; i <= biggestNum; i++)
             {
                 string result =
-                    (i % 3 == 0) ? "Coza" :
-                    (i % 5 == 0) ? "Loza" :
-                    (i % 7 == 0) ? "Woza" : i.ToString();
-                
-            Console.WriteLine(result + " ");
+                       (i % 3 == 0 && i % 5 == 0 || i % 3 == 0 && i % 7 == 0) ? "CozaLoza" :
+                       (i % 3 == 0) ? "Coza" :
+                       (i % 5 == 0) ? "Loza" :
+                       (i % 7 == 0) ? "Woza" : i.ToString();
+
+                Console.WriteLine(result + " ");
 
                 if(i % numInLine == 0)
                 {
