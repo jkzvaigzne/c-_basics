@@ -4,41 +4,26 @@
     {
         static void Main(string[] args)
         {
-            int weekDay = 1;
-            PrintDay(weekDay);
+            int day = 1;
+            string result = GetWeekDay(day);
+            Console.WriteLine(result);
 
             Console.Read();
         }
 
-        static void PrintDay(int dayNumber)
+       static string GetWeekDay(int day)
         {
-            switch(dayNumber)
+            return day switch
             {
-                case 0:
-                    Console.WriteLine("Sunday");
-                    break;
-                case 1:
-                    Console.WriteLine("Monday");
-                    break;
-                case 2:
-                    Console.WriteLine("Tuesday");
-                    break;
-                case 3:
-                    Console.WriteLine("Wednesday");
-                    break;
-                case 4:
-                    Console.WriteLine("Thursday");
-                    break;
-                case 5:
-                    Console.WriteLine("Friday");
-                    break;
-                case 6:
-                    Console.WriteLine("Saturday");
-                    break;
-                default:
-                    Console.WriteLine("Not a valid day");
-                    break;
-            }
+                0 => "Sunday",
+                1 => "Monday",
+                2 => "Tuesday",
+                3 => "Wednesday",
+                4 => "Thursday",
+                5 => "Friday",
+                6 => "Saturday",
+                _ => "Not a valid day"
+            };
         }
     }
 }
