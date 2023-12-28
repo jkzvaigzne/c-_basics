@@ -6,76 +6,46 @@ namespace Exercise__5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter some text: ");
-            string userText = Console.ReadLine().ToLower();
-
-            Console.WriteLine("Keypad sequence output: ");
-            string keypad = CovertKeypad(userText);
-            Console.WriteLine(keypad);
+            Console.Write("Enter text to convert in keypad digits: ");
+            string input = Console.ReadLine();
+            string sequence = ConvertKeypad(input);
+            Console.WriteLine(sequence);
 
             Console.Read();
         }
 
-        static string CovertKeypad(string input)
+        static string ConvertKeypad(string input)
         {
-            string sequence = "";
+            string sentence = "";
 
-            foreach(char currentChar in input)
+            foreach(char currChar in input.ToLower())
             {
                 int userDigit = 1;
 
-                switch(currentChar)
+                userDigit = currChar switch
                 {
-                    case 'a':
-                    case 'b':
-                    case 'c':
-                        userDigit = 2;
-                        break;
-                    case 'd':
-                    case 'e':
-                    case 'f':
-                        userDigit = 3;
-                        break;
-                    case 'j':
-                    case 'k':
-                    case 'l':
-                        userDigit = 5;
-                        break;
-                    case 'm':
-                    case 'n':
-                    case 'o':
-                        userDigit = 6;
-                        break;
-                    case 'p':
-                    case 'q':
-                    case 'r':
-                    case 's':
-                        userDigit = 7;
-                        break;
-                    case 't':
-                    case 'u':
-                    case 'v':
-                        userDigit = 8;
-                        break;
-                    case 'w':
-                    case 'x':
-                    case 'y':
-                    case 'z':
-                        userDigit = 9;
-                        break;
-                }
+                    'a' or 'b' or 'c' => 2,
+                    'd' or 'e' or 'f' => 3,
+                    'g' or 'h' or 'i' => 4,
+                    'j' or 'k' or 'l' => 5,
+                    'm' or 'n' or 'o' => 6,
+                    'p' or 'q' or 'r' or 's' => 7,
+                    't' or 'u' or 'v' => 8,
+                    'w' or 'x' or 'y' or 'z' => 9,
+                    _ => 1 
+                };
 
                 if(userDigit != 1)
                 {
-                    sequence += userDigit;
-                } 
+                    sentence += userDigit;
+                }
                 else
                 {
-                    sequence += currentChar;
+                    sentence += currChar;
                 }
             }
 
-            return sequence;
+            return sentence;
         }
     }
 }
