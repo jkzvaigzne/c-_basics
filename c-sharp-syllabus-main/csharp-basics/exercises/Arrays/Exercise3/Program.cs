@@ -17,7 +17,7 @@ namespace Exercise3
             double avg = (double)sum / numbers.Length;
 
             Console.WriteLine($"Sum of array elements is: {sum}" );
-            Console.WriteLine($"Average value of the array elements is : {avg}");
+            Console.WriteLine($"Average value of the array elements is : {avg:F2}");
             
             Console.Read();
         }
