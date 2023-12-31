@@ -7,22 +7,19 @@ namespace PositiveNegativeNumber
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number.");
-            var input = Console.ReadKey();
-            /*
-            fixme
-            if (?)
+            string input = Console.ReadLine();
+         
+            if(int.TryParse(input, out int num))
             {
-                Console.WriteLine("Number is positive");
+                string result = (num > 0) ? "Number is positive" : ((num < 0) ? "Number is negative" : "Number is zero");
+                Console.WriteLine(result);
             } 
-            else if (?) 
+            else
             {
-                Console.WriteLine("Number is negative");
-            } 
-            else 
-            {
-                Console.WriteLine("Number is zero");
+                Console.WriteLine("Invalid input.");
             }
-            */
+
+            Console.Read();
         }
     }
 }
