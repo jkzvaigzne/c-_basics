@@ -6,18 +6,35 @@ namespace Exercise2
     {
         static void Main(string[] args)
         {
-            int i, n;
-            
-            Console.WriteLine("Input number of terms : ");
-            n = Convert.ToInt32(Console.ReadLine());
-            /*
-            todo - complete loop to multiply i with itself n times, it is NOT allowed to use Math.Pow()
-            */
-            for (i = 0; i < n; i++)
+            int num = GetUserNumber();
+            int res = MakePowerNumber(num);
+            DisplayOutput(res);
+
+            Console.Read();
+        }
+
+        static int GetUserNumber()
+        {
+            Console.WriteLine("Input number : ");
+            int userChoiceNumber = int.Parse(Console.ReadLine());
+            return userChoiceNumber;
+        }
+
+        static int MakePowerNumber(int num)
+        {
+            int res = 1;
+
+            for (int i = 0; i < num; i++)
             {
+                res *= num;
             }
 
-            Console.ReadKey();
+            return res;
+        }
+
+        static void DisplayOutput(int res)
+        {
+            Console.WriteLine($"Result: {res}");
         }
     }
 }
