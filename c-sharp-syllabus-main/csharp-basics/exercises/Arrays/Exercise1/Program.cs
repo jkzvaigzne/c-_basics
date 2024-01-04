@@ -4,17 +4,16 @@ namespace Exercise1
 {
     class Program
     {
-        //TODO: Write a C# program to sort a numeric array and a string array.
         private static void Main(string[] args)
         {
-            int[] myArray1 = 
+            int[] yearsArr =
             {
                 1789, 2035, 1899, 1456, 2013,
                 1458, 2458, 1254, 1472, 2365,
                 1456, 2165, 1457, 2456
             };
 
-            string[] myArray2 = 
+            string[] languagesArr =
             {
                 "Java",
                 "Python",
@@ -23,20 +22,28 @@ namespace Exercise1
                 "C Programming",
                 "C++"
             };
+
+            SortedNumericArr(yearsArr);
+            SortedStringArr(languagesArr);
             
-            
-            //fixme
-            Console.WriteLine("Original numeric array : " + string.Join("," , myArray1));
-            //........... //Sort array
-            
-            Console.WriteLine("Sorted numeric array : " + string.Join("," , myArray1));
-    
-            Console.WriteLine("Original string array : " + string.Join("," , myArray2));
-            //......... //Sort array
-            
-            Console.WriteLine("Sorted string array : " + string.Join("," , myArray2));
-            //*/
-            Console.ReadKey();
+            Console.Read();
         }
+
+        private static void SortedNumericArr(int[] array)
+        {
+            Array.Sort(array); 
+
+            Console.WriteLine($"Original - Numeric array: {string.Join(",", array)}");
+            Console.WriteLine($"Sorted - Numeric array: {string.Join(",", array)}");
+        }
+
+        private static void SortedStringArr(string[] array)
+        {
+            Array.Sort(array);
+
+            Console.WriteLine($"Original - String array: {string.Join(",", array)}");
+            Console.WriteLine($"Sorted - String array: {string.Join(",", array)}");
+        }
+
     }
 }
