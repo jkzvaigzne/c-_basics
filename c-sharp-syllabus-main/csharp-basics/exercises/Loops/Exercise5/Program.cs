@@ -20,18 +20,18 @@
             int lineHeigth = 30;
             int countDots = lineHeigth - (firstWord.Length + secondWord.Length);
 
-            Console.WriteLine(firstWord);
+            Console.Write(firstWord);
             
             printDots(countDots);
 
-            Console.WriteLine(secondWord);
+            Console.Write(secondWord);
         }
 
         static void printDots(int counter)
         {
             for(int i = 0; i < counter; i++)
             {
-                Console.WriteLine(".");
+                Console.Write(".");
             }
         }
     }

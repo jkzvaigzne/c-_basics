@@ -2,7 +2,7 @@
 
 class AsciiFigure
 {
-    const int Size = 3;
+    const int Size = 7;
 
     static void Main()
     {
@@ -22,16 +22,17 @@ class AsciiFigure
         {
             int j = 0;
 
-            while (j++ < 2 * (size - i)) Console.Write(slashes);
+            while (j++ < 2 * (size - i - 1)) Console.Write(slashes);
             j = 0;
 
-            while (j++ < 2 * i) Console.Write(stars);
+            while (j++ < 3 * i * 2) Console.Write(stars);
             j = 0;
 
-            while (j++ < 2 * (size - i)) Console.Write(backslashes);
+            while (j++ < 2 * (size - i - 1)) Console.Write(backslashes);
 
             Console.WriteLine();
             i++;
         }
     }
+
 }
