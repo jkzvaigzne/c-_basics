@@ -6,12 +6,15 @@ namespace Exercise1
     {
         static void Main(string[] args)
         {
-            int i;
+            int minNumber = 1;
+            int maxNumber = 10;
 
-            Console.WriteLine("The first 10 natural numbers are: ");
+            for (int input = minNumber; input <= maxNumber; input++)
+            {
+                Console.WriteLine($"{maxNumber} natural numbers are: {input}");
+            }
 
-            //todo - write a program in C# to display the first 10 natural numbers
-
+            Console.Read();
         }
     }
 }
