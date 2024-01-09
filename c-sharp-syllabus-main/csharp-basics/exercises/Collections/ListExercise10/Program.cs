@@ -19,11 +19,12 @@ namespace ListExercise10
             Console.WriteLine("Original array list: ");
             Console.WriteLine(string.Join(",", colors));
 
-            //TODO: Remove all elements from list
-            //...
+            colors.Clear();
 
             Console.WriteLine("New array list: ");
             Console.WriteLine(string.Join(",", colors));
+
+            Console.Read();
         }
     }
 }
