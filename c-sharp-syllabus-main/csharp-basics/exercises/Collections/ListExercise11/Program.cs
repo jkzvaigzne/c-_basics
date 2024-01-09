@@ -1,22 +1,43 @@
-﻿namespace ListExercise11
+﻿using System;
+using System.Collections.Generic;
+
+
+namespace ListExercise11
 {
     class Program
     {
+        const int TotalValues = 10;
+        const int Position = 4;
+        const int LastIndex = -1;
+
         static void Main(string[] args)
         {
-            //TODO: Create an List with string elements
+            List<string> stringList = new List<string>();
 
-            //TODO: Add 10 values to list
+            for (int i = 1; i <= TotalValues; i++)
+            {
+                stringList.Add($"value {i}");
+            }
 
-            //TODO: Add new value at 5th position
+            stringList.Insert(Position, "new value");
 
-            //TODO: Change value at last position (Calculate last position programmatically)
+            int lastIndex = stringList.Count + LastIndex;
+            stringList[lastIndex] = "changed";
 
-            //TODO: Sort your list in alphabetical order
+            stringList.Sort();
 
-            //TODO: Check if your list contains "Foobar" element
+            bool containsFoobar = stringList.Contains("foobar");
 
-            //TODO: Print each element of list using loop
+            foreach (var el in stringList)
+            {
+                Console.Write(el + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine($"list contains 'foobar': {containsFoobar}");
+
+            Console.Read();
         }
     }
 }
