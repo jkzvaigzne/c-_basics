@@ -1,6 +1,6 @@
 ﻿namespace Account
 {
-    public class Account
+    public partial class Account
     {
         private int _id;
         private string _accName;
@@ -20,14 +20,5 @@
         public string AccountName() => _accName;
 
         public decimal AccountBalance() => _accBalance;
-
-        public static class Bank
-        {
-            public static void Transfer(Account source, Account destination, decimal howMuch)
-            {
-                source.AccountWithdrawal(howMuch);
-                destination.AccountDeposit(howMuch);
-            }
-        }
     }
 }
