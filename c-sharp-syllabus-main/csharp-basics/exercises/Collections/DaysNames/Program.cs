@@ -1,3 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
-//ToDo: Write a query that returns names of days
-//https://docs.microsoft.com/en-us/dotnet/api/system.dayofweek?view=net-6.0
+﻿using System;
+
+namespace DaysNames
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] weekDays = Enum.GetNames(typeof(DayOfWeek)).ToArray();
+
+            Console.WriteLine("days:\n" + string.Join("\n", weekDays));
+
+            Console.Read();
+        }
+    }
+}
