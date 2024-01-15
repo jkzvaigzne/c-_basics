@@ -11,7 +11,7 @@ namespace Firm
         //-----------------------------------------------------------------
         public Staff()
         {
-            staffList = new StaffMember[6];
+            staffList = new StaffMember[8];
             staffList[0] = new Executive("Sam", "123 Main Line",
                 "555-0469", "123-45-6789", 2423.07);
             staffList[1] = new Employee("Carla", "456 Off Line",
@@ -24,10 +24,18 @@ namespace Firm
                 "555-8374");
             staffList[5] = new Volunteer("Cliff", "321 Duds Lane",
                 "555-7282");
-            ((Executive) staffList[0]).AwardBonus(500.00);
-            ((Hourly) staffList[3]).AddHours(40);
-        }
+            staffList[6] = new Commission("John Doe", "Riga", "371-48-3333",
+                "958-45-3625", 6.25, 0.2);
+            staffList[7] = new Commission("Jane Doe", "Cesis",
+                "372-38-1333", "010-20-3040", 10.20, 0.15);
 
+            ((Executive)staffList[0]).AwardBonus(500.00);
+            ((Hourly)staffList[3]).AddHours(40);
+            ((Commission)staffList[6]).AddHours(35);
+            ((Commission)staffList[6]).AddSales(400);
+            ((Commission)staffList[7]).AddHours(40);
+            ((Commission)staffList[7]).AddSales(950);
+        }
         //-----------------------------------------------------------------
         // Pays all staff members.
         //-----------------------------------------------------------------
@@ -43,6 +51,8 @@ namespace Firm
                     Console.WriteLine("Paid: " + amount);
                 Console.WriteLine("-----------------------------------");
             }
+
+            Console.ReadLine();
         }
     }
 }
