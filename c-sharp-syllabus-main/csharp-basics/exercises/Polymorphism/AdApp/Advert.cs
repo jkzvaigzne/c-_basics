@@ -4,29 +4,14 @@ namespace AdApp
     {
         private int _fee;
 
-        public Advert() 
-        {
-            _fee = 0;
-        }
+        public Advert() => _fee = 0;
 
-        public Advert(int fee) 
-        {
-            _fee = fee;
-        }
+        public Advert(int fee) => _fee = fee;
 
-        public void SetFee(int fee) 
-        {
-            _fee = fee;
-        }
+        public void SetFee(int fee) => _fee = fee;
 
-        public int Cost() 
-        {
-            return _fee;
-        }
+        public virtual int Cost() => _fee;
 
-        public override string ToString() 
-        {
-            return "\nAdvert: Fee=" + _fee;
-        }
+        public override string ToString() => $"\nAdvert fee: £{_fee}";
     }
 }
