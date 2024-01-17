@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ListExercise9
 {
@@ -28,8 +29,11 @@ namespace ListExercise9
             };
 
             Console.WriteLine(string.Join(",", secondList));
-            //TODO: Write a C# program to join two lists.
-            //...
+
+            var thirdList = firstList.Concat(secondList).ToList();
+            Console.WriteLine(string.Join(",", thirdList));
+
+            Console.Read();
         }
     }
 }

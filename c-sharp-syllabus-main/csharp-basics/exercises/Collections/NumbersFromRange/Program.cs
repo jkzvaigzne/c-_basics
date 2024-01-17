@@ -6,17 +6,33 @@ namespace NumbersFromRange
 {
     internal class Program
     {
+        private const int MinRmdVal = 1;
+        private const int MaxRmdVal = 100;
+        private const int minRange = 30;
+        private const int maxRange = 100;
+        private const int numOfRmdNums = 10;
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var random = new Random();
-            var numbers = new List<int>();
-            while (numbers.Count() < 10)
+            var rnd = new Random();
+            var nums = new List<int>();
+
+            while (nums.Count < numOfRmdNums)
             {
-                numbers.Add(random.Next(1, 100));
+                nums.Add(rnd.Next(MinRmdVal, MaxRmdVal));
             }
 
-            //ToDo: Given an array of integers, write a query that returns list of numbers greater than 30 and less than 100.
+            var numsInRange = new List<int>();
+            foreach (var num in nums)
+            {
+                if (num > minRange && num < maxRange)
+                {
+                    numsInRange.Add(num);
+                    Console.WriteLine($"number {num} is greater than {minRange} and less than {maxRange}");
+                }
+            }
+
+            Console.Read();
         }
     }
 }

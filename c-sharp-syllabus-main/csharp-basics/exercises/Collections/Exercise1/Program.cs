@@ -1,26 +1,57 @@
-﻿namespace Exercise1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Exercise1
 {
     class Program
     {
-        /**
-           * Origination:
-           * Audi -> Germany
-           * BMW -> Germany
-           * Honda -> Japan
-           * Mercedes -> Germany
-           * VolksWagen -> Germany
-           * Tesla -> USA
-           */
+
+        static string GetCountries(string car) =>
+                  car switch
+                  {
+                      "Audi" or "BMW" or "Mercedes" or "VolksWagen" => "Germany",
+                      "Honda" => "Japan",
+                      "Tesla" => "USA",
+                      _ => "Earth"
+                  };
 
         private static void Main(string[] args)
         {
-            string[] array = { "Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla" };
+            List<string> carBrandsList = new List<string> { "Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla" };
 
-            //todo - replace array with an List and print out the results
+            foreach (string carBrand in carBrandsList)
+            {
+                Console.WriteLine($"{carBrand}-{GetCountries(carBrand)}");
+            }
 
-            //todo - replace array with a HashSet and print out the results
+            Console.Write("\n");
 
-            //todo - replace array with a Dictionary (use brand as key and origination as value) and print out the results
+            HashSet<string> carHashSet = new HashSet<string>(carBrandsList);
+
+            foreach (var car in carHashSet)
+            {
+                Console.WriteLine($"{car}-{GetCountries(car)}");
+            }
+
+            Console.Write("\n");
+
+            Dictionary<string, string> carOriginsDict = new Dictionary<string, string>
+            {
+                { "Audi", "Germany" },
+                { "BMW", "Germany" },
+                { "Mercedes", "Germany" },
+                { "VolksWagen", "Germany" },
+                { "Honda", "Japan" },
+                { "Tesla", "USA" }
+            };
+
+            foreach (var kvp in carOriginsDict)
+            {
+                Console.WriteLine($"{kvp.Key}-{kvp.Value}");
+            }
+
+            Console.Read();
         }
     }
 }
