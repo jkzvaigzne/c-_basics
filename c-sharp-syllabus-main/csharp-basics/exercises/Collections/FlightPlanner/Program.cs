@@ -33,7 +33,7 @@ namespace FlightPlanner
                 Environment.Exit(0);
             }
 
-            Console.WriteLine($"{_userName}, select a city you would like to start and press 1");
+            Console.WriteLine($"{_userName},to continue press 1...");
             userChoice = Console.ReadKey().KeyChar;
 
             if (userChoice == '1')

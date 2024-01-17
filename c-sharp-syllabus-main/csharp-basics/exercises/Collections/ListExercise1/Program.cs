@@ -8,9 +8,15 @@ namespace ListExercise1
     {
         private static void Main(string[] args)
         {
-            List<string> colors = new List<string> { "Sandy Brown", "Medium Blue", "Pale Green", "Light Yellow", "Floral White" };
+            List<string> colors = new List<string>();
 
-            foreach(string color in colors)
+            colors.Add("Sandy Brown");
+            colors.Add("Medium Blue");
+            colors.Add("Pale Green");
+            colors.Add("Light Yellow");
+            colors.Add("Floral White");
+
+            foreach (string color in colors)
             {
                 Console.WriteLine(color);
             }
@@ -19,3 +25,4 @@ namespace ListExercise1
         }
     }
 }
+
