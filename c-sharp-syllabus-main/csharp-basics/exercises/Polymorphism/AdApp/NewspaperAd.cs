@@ -5,18 +5,20 @@ namespace AdApp
         private int _column;
         private int _rate;
 
-        public NewspaperAd(int fee) : base(fee)
+        public NewspaperAd(int fee, int rate, int columnCm) : base(fee)
         {
+            _rate = rate;
+            _column = columnCm;
         }
 
-        private new int Cost()
+        public override int Cost()
         {
-            return base.Cost();
+            return base.Cost() + _column * _rate;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $"\nCentimeters in column: {-_column} \nPrice per cm: {_rate}";
         }
     }
 }

@@ -1,24 +1,68 @@
 ﻿using System;
+using System.Collections.Generic;
+using DragRace;
+using DragRace.Cars;
 
 namespace DragRace
 {
     class Program
     {
-        /**
- * Take a look at the cars in this solution.
- * 1. Extract common behaviour to an interface called Car, and use it in the all classes.
- * Which methods will be extracted with an empty body, and which can be default?
- * 2. Create two more cars of your own choice.
- * 3. As you see there is a possibility to use some kind of boost in Lexus, extract it to a new interface
-          and add that behaviour in one more car.
- * 4. Create one instance of an each car and add them to list.
- * 5. Iterate over the list 10 times, in the 3rd iteration use speed boost on the car if they have one.
- * 6. Print out the car name and speed of the fastest car
- */
-
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            
+            List<ICar> cars = InitializeCars();
+            RaceCars(cars);
+            ShowWinner(cars);
+            Console.Read();
+        }
+
+        private static List<ICar> InitializeCars() => new List<ICar> { new Bmw(), new Cybertruck(), new Porsche911(), new Audi(), new Tesla(), new Lexus(), };
+
+        private static void RaceCars(List<ICar> cars)
+        {
+            const int raceIterator = 10;
+            const int engineStart = 0;
+            const int boostIterator = 2;
+
+            for (int i = 0; i < raceIterator; i++)
+            {
+                foreach (var car in cars)
+                {
+                    switch (i)
+                    {
+                        case var _ when i == engineStart:
+                            car.StartEngine();
+                            continue;
+                        case var _ when i == boostIterator && car is IBoostable boostableCar:
+                            boostableCar.UseNitrousOxideEngine();
+                            continue;
+                        default:
+                            car.SpeedUp();
+                            continue;
+                    }
+                }
+
+            }
+        }
+
+
+        static void ShowWinner(List<ICar> cars)
+        {
+            int carMaxSpeed = 0;
+            string fastestCar = null;
+
+            foreach (var car in cars)
+            {
+                int currentSpeed = int.Parse(car.ShowCurrentSpeed());
+
+                if (currentSpeed > carMaxSpeed)
+                {
+                    carMaxSpeed = currentSpeed;
+                    fastestCar = car.GetType().Name;
+                }
+            }
+
+            Console.WriteLine($"Fastest: {fastestCar}");
+            Console.WriteLine($"Speed: {carMaxSpeed}");
         }
     }
 }
